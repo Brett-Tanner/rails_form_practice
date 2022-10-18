@@ -1,26 +1,17 @@
-<form action="/users" method="post" accept-charset="UTF-8" class="html_form">
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <div class="html_form">
-        <label for="username">Username:</label>
-        <input type="text" name="user[username]" id="username">
+<%= form_tag("/users", method: "post") do %>
+    <div class="form_tag_form">
+        <%= label_tag(:username, "Username:") %>
+        <%= text_field(:user, :username) %>
     </div>
-    <div class="html_form">
-        <label for="password">Password</label>
-        <input type="password" name="user[password]" id="password">
+    <div class="form_tag_form">
+        <%= label_tag(:password, "Password:") %>
+        <%= password_field(:user, :password) %>
     </div>
-    <div class="html_form">
-        <label for="password_confirmation">Confirm Password</label>
-        <input type="password" name="user[password_confirmation]" id="password_confirmation">
+    <div class="form_tag_form">
+        <%= label_tag(:email, "Email:") %>
+        <%= email_field(:user, :email) %>
     </div>
-    <div class="html_form">
-        <label for="email">Email</label>
-        <input type="email" name="user[email]" id="email">
+    <div class="form_tag_form">
+        <%= submit_tag("Submit") %>
     </div>
-    <div class="html_form">
-        <label for="email_confirmation">Confirm Email</label>
-        <input type="email" name="user[email_confirmation]" id="email_confirmation">
-    </div>
-    <div class="html_form">
-        <input type="submit" value="Submit">
-    </div>
-</form>
+<% end %>
